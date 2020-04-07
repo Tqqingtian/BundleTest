@@ -50,7 +50,7 @@ public class BuildEditor : EditorWindow
 
         this.platformType = (PlatformType)EditorGUILayout.EnumPopup(platformType);
 
-        isBuildInSA = EditorGUILayout.Toggle(isBuildInSA);
+        isBuildInSA = EditorGUILayout.Toggle("是否同将资源打进SA: ", isBuildInSA);
 
 
         if (GUILayout.Button("开始打包"))
@@ -60,11 +60,17 @@ public class BuildEditor : EditorWindow
                 Debug.Log("请选择打包平台!");
                 return;
             }
-            if (!Directory.Exists(ResourceConfig.URL_AB + ResourceConfig.Platform))
+            string fold = ResourceConfig.BD_AB + ResourceConfig.Platform;
+            if (!Directory.Exists(fold))
             {
-                return;
+                Directory.CreateDirectory(fold);
             }
-            DeleteFileOrFolder(ResourceConfig.URL_AB + ResourceConfig.Platform);
+            //if (!Directory.Exists(ResourceConfig.URL_AB + ResourceConfig.Platform))
+            //{
+            //    Debug.Log("没有 路径 = " + ResourceConfig.URL_AB + ResourceConfig.Platform);
+            //    return;
+            //}
+            DeleteFileOrFolder(ResourceConfig.BD_AB + ResourceConfig.Platform);
             BuildHelper.Build(this.platformType, isBuildInSA);
         }
 

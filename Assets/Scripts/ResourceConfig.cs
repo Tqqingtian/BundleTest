@@ -5,7 +5,9 @@ using UnityEngine;
 public class ResourceConfig 
 {
 
-    public static string URL_AB = Application.dataPath + "/../AssetBundle/";
+    public static string URL_AB = "http://localhost:8080/";
+
+    public static string BD_AB = "E:/LianXi/UnpackDemo/AssetBundle/";
 
     /// <summary>
     /// 生成包
@@ -32,6 +34,9 @@ public class ResourceConfig
 
         }
     }
+    /// <summary>
+    /// 平台
+    /// </summary>
     public static string Platform
     {
         get

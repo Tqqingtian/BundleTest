@@ -6,28 +6,24 @@ public class AssetBundleMgr
 {
     public static T LoadBundle<T>(string bundleName) where T : UnityEngine.Object
     {
+        //平台包
+        string PDP = ResourceConfig.PD_AB + ResourceConfig.Platform;
         List<AssetBundle> ABList = new List<AssetBundle>();
-        Debug.Log(ResourceConfig.PD_AB + ResourceConfig.Platform + "PC");
-        AssetBundle bundle = AssetBundle.LoadFromFile(ResourceConfig.PD_AB +ResourceConfig.Platform + "PC");
-        Debug.Log("AssetBundle:" + bundle);
+        //Debug.Log(PDP + PDP + ResourceConfig.Platform.Remove(ResourceConfig.Platform.Length - 1, 1));
+        //查找依赖关系
+        AssetBundle bundle = AssetBundle.LoadFromFile(PDP + ResourceConfig.Platform.Remove(ResourceConfig.Platform.Length - 1, 1));
         ABList.Add(bundle);
         AssetBundleManifest manifest = (AssetBundleManifest)bundle.LoadAsset("AssetBundleManifest");
-        Debug.Log("AssetBundleManifest:" + manifest);
-
         string[] strArr = manifest.GetAllDependencies($"{bundleName}.assetbundle");
-        Debug.Log(strArr.Length);
         foreach (var item in strArr)
         {
-            AssetBundle manifestBundle = AssetBundle.LoadFromFile(ResourceConfig.PD_AB + ResourceConfig.Platform + item);
+            AssetBundle manifestBundle = AssetBundle.LoadFromFile(PDP + item);
             ABList.Add(manifestBundle);
-            Debug.Log("AssetBundle1:" + manifestBundle);
         }
 
-        AssetBundle cubeBundle = AssetBundle.LoadFromFile(ResourceConfig.PD_AB + ResourceConfig.Platform + $"{bundleName}.assetbundle");
+        AssetBundle cubeBundle = AssetBundle.LoadFromFile(PDP + $"{bundleName}.assetbundle");
         ABList.Add(cubeBundle);
         T obj = cubeBundle.LoadAsset<T>(bundleName);
-        //UnityEngine.Object.Instantiate(obj);
-        Debug.Log(obj);
         for (int i = 0; i < ABList.Count; i++)
         {
             ABList[i].Unload(false);

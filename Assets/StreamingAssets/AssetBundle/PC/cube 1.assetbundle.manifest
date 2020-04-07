@@ -26,4 +26,4 @@ ClassTypes:
 Assets:
 - Assets/Download/Ed/Cube 1.prefab
 Dependencies:
-- E:/LianXi/UnpackDemo/BundleTest/Assets/../AssetBundle/PC/materials.assetbundle
+- E:/LianXi/UnpackDemo/AssetBundle/PC/materials.assetbundle

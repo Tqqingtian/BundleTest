@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 473522815
+CRC: 2317070065
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dd867da28aed6ac42c5de9c98f0ee7c4
+    Hash: 4cdd6ba559937237f2bd3fd301184549
   TypeTreeHash:
     serializedVersion: 2
     Hash: fe397485c3cec1106b49e9ff95e8f8a2
@@ -18,5 +18,4 @@ ClassTypes:
 Assets:
 - Assets/Download/Ed/Materials/Materials.mat
 Dependencies:
-- E:/LianXi/UnpackDemo/BundleTest/Assets/../AssetBundle/PC/texture.assetbundle
-- E:/LianXi/UnpackDemo/BundleTest/Assets/../AssetBundle/PC/newunlitshader.assetbundle
+- E:/LianXi/UnpackDemo/AssetBundle/PC/texture.assetbundle

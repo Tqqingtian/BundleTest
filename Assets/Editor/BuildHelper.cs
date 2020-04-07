@@ -20,12 +20,9 @@ public static class BuildHelper
             case PlatformType.IOS:
                 buildTarget = BuildTarget.iOS;
                 break;
-            case PlatformType.MacOS:
-                buildTarget = BuildTarget.StandaloneOSX;
-                break;
         }
 
-        string URL_AB_Type = ResourceConfig.URL_AB + type;
+        string URL_AB_Type = ResourceConfig.BD_AB + type;
         FileHelper.CleanDirectory(URL_AB_Type);
         if (!Directory.Exists(URL_AB_Type))
         {

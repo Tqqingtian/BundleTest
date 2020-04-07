@@ -11,7 +11,9 @@ public class FileVersionInfo
 
 public class VersionConfig
 {
-
+    /// <summary>
+    /// 文件信息字典
+    /// </summary>
     public Dictionary<string, FileVersionInfo> FileInfoDict;
 
     public VersionConfig() {
